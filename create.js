@@ -5,7 +5,8 @@ import AWS from "aws-sdk";
 
 
 export const main = handler(async (event, context) => {
-  AWS.config.update({ region: 'REGION' });
+  AWS.config.update({ region: 'us-east-2' });
+  return 'borked';
   const client = new AWS.DynamoDB.DocumentClient({ apiVersion: '2012-08-10' });
   const data = JSON.parse(event.body);
   const params = {
