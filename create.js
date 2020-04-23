@@ -7,6 +7,7 @@ import AWS from "aws-sdk";
 export const main = handler(async (event, context) => {
   AWS.config.update({ region: 'us-east-2' });
   return 'borked';
+  /*
   const client = new AWS.DynamoDB.DocumentClient({ apiVersion: '2012-08-10' });
   const data = JSON.parse(event.body);
   const params = {
@@ -27,8 +28,9 @@ export const main = handler(async (event, context) => {
       createdAt: Date.now()
     }
   };
-
+  
   await client.put(params);
 
   return params.Item;
+  */
 });
