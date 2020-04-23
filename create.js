@@ -3,10 +3,10 @@ import handler from "./libs/handler-lib";
 //import dynamoDb from "./libs/dynamodb-lib";
 import AWS from "aws-sdk";
 
-AWS.config.update({ region: 'us-east-2' });
 
 export const main = handler(async (event, context) => {
-  const client = new AWS.DynamoDB.DocumentClient();
+  AWS.config.update({ region: 'us-east-2' });
+  const client = new AWS.DynamoDB.DocumentClient({ apiVersion: '2012-08-10' });
   const data = JSON.parse(event.body);
   const params = {
     TableName: process.env.tableName,
